@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+    <form action="/weather" method="post">
+        <h1>Weather</h1>
+         {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+        <label for="location"> Enter Location:</label>
+        <input type="text" id="location" name="location">
+        <input type="submit" value="Search">
+    </form>
+
+</body>
+</html>
+
+
+

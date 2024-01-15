@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-deployment
+spec:
+  replicas: {{ .Values.replicacount }}
+  selector:
+    matchLabels:
+      app: weather
+  template:
+    metadata:
+      labels:
+        app: weather
+    spec:
+      containers:
+        - name: weather
+          image: {{ .Values.image }}
+          ports:
+          - containerPort: 8000
+          env:
+            - name: BACKGROUND_COLOR
+              valueFrom:
+                configMapKeyRef:
+                  name: green-configmap
+                  key: BACKGROUND_COLOR
+          volumeMounts:
+            - name: data
+              mountPath: /json
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: block-claim
+          
+
+      
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: weather-service
+spec:
+  selector:
+    app: weather
+  ports:
+    - protocol: TCP
+      port: 32300
+      targetPort: 8000
+

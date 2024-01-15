@@ -1,0 +1,30 @@
+# Ignore binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore TXT files
+#*.txt
+
+# Ignore PDF files
+*.pdf
+
+# Ignore object files
+*.o
+
+# Ignore specific files 
+dockerproject/
+createFileEachDir.sh
+divideStudents.sh 
+
+# Ignore Terraform files
+.terraform/
+
+# Ignore Terraform provider binaries
+**/.terraform/providers/**
+
+# Ignore other large files or directories
+Containers/KubernetesExercise/tf/.terraform/providers/
+Projects/TerraformAndEKSProject/eks-cluste/.terraform/providers/
+Terraform/ex5/.terraform/providers/

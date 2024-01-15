@@ -1,0 +1,70 @@
+
+### 26. Using Docker Compose to Manage Services:
+
+   To use Docker Compose to manage services, follow these steps:
+
+   1. Install Docker Compose:
+      ```
+      sudo pip3 install docker-compose
+      ```
+
+   2. Create a Docker Compose file named `docker-compose.yml` in the project directory.
+
+   3. Add the following content to the `docker-compose.yml` file:
+      ```yaml
+      version: '3'
+      services:
+        web:
+          build:
+            context: .
+            dockerfile: Dockerfile
+          ports:
+            - 8080:8000
+      ```
+
+   4. Start the services defined in the Docker Compose file:
+      ```
+      sudo docker-compose up
+      ```
+
+### 27. Use Nginx as a Load Balancer:
+
+   To use Nginx as a load balancer between two separate container instances of a Flask application, follow these steps:
+
+   1. Update the `docker-compose.yml` file:
+      ```yaml
+      version: '3'
+      services:
+        web1:
+          build:
+            context: .
+            dockerfile: Dockerfile
+          ports:
+            - 8000:8000
+        web2:
+          build:
+            context: .
+            dockerfile: Dockerfile
+          ports:
+            - 8989:8000
+        nginx:
+          image: nginx
+          ports:
+            - 80:80
+          volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+          depends_on:
+            - web1
+            - web2
+      ```
+
+   2. Create the `nginx.conf` file with the appropriate Nginx configuration for load balancing.
+
+   3. Start the services defined in the updated Docker Compose file:
+      ```
+      sudo docker-compose up
+      ```
+
+   The Nginx container will act as a load balancer, distributing incoming requests between the two Flask application containers (`web1` and `web2`).
+
+

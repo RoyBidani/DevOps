@@ -1,0 +1,7 @@
+To find cookies:
+
+1. Enter terminal
+2. cd /home/parallels/snap/firefox/common/.mozilla/firefox/j799fn1y.default/
+3. sqlite3 cookies.sqlite
+4. SELECT * FROM moz_cookies;
+

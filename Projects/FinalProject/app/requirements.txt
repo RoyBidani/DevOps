@@ -1,0 +1,6 @@
+flask
+gunicorn
+pymongo
+requests
+bs4
+Flask-PyMongo

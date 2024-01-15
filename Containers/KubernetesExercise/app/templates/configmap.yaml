@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blue-configmap
+data:
+  BACKGROUND_COLOR: blue
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: green-configmap
+data:
+  BACKGROUND_COLOR: green
+

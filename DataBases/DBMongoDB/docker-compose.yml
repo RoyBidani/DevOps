@@ -1,0 +1,62 @@
+version: '3.7'
+
+services:
+  # Primary MongoDB Node
+  mongodb-Cont-primary:
+    image: mongo:latest
+    container_name: mongoDB-Cont-primary
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_cont:/data/db
+      - ./mongodb-keyfile:/etc/mongodb-keyfile  # Bind mount the key file
+    command: 
+      - bash
+      - -c
+      - "ls /etc/mongodb-keyfile && mongod --auth --keyFile /etc/mongodb-keyfile --bind_ip_all --replSet rs0"  # Specify the replica set name and key file
+
+  # Secondary MongoDB Node 1
+  mongodb-Cont-secondary1:
+    image: mongo:latest
+    container_name: mongoDB-Cont-secondary1
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongodb_data_cont_secondary1:/data/db
+      - ./mongodb-keyfile:/etc/mongodb-keyfile  # Bind mount the key file
+    depends_on:
+      - mongodb-Cont-primary  # Ensure primary node is up first
+    command:
+      - bash
+      - -c
+      - "ls /etc/mongodb-keyfile && mongod --auth --keyFile /etc/mongodb-keyfile --bind_ip_all --replSet rs0"
+
+  # Secondary MongoDB Node 2
+  mongodb-Cont-secondary2:
+    image: mongo:latest
+    container_name: mongoDB-Cont-secondary2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongodb_data_cont_secondary2:/data/db
+      - ./mongodb-keyfile:/etc/mongodb-keyfile  # Bind mount the key file
+    depends_on:
+      - mongodb-Cont-primary  # Ensure primary node is up first
+    command:
+      - bash
+      - -c
+      - "ls /etc/mongodb-keyfile && mongod --auth --keyFile /etc/mongodb-keyfile --bind_ip_all --replSet rs0"
+
+volumes:
+  # Volume for Primary Node
+  mongodb_data_cont:
+
+  # Volumes for Secondary Nodes
+  mongodb_data_cont_secondary1:
+  mongodb_data_cont_secondary2:
+

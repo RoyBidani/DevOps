@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <h1>Weather in {{ location }}</h1>
+  <table>
+    <tr>
+      <th>Date:</th>
+      <th>Day Temperature:</th>
+      <th>Night Temperature:</th>
+      <th>Humidity:</th>
+    </tr>
+    {% for item in weather_info %}
+    <tr>
+      <td>{{ item.date }}</td>
+      <td>{{ item.day_temp }} °C</td>
+      <td>{{ item.night_temp }} °C</td>
+      <td>{{ item.humidity }} %</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
+
+
+

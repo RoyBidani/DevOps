@@ -1,0 +1,4 @@
+myApp:
+  enabled: true
+  replicas: 3
+  

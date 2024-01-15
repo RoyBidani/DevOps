@@ -1,0 +1,31 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.211.55.3:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.211.55.3:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:17:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:17:51] "GET /static/index.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:17:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:root:This is a debug message
+INFO:root:This is an info message
+WARNING:root:This is a warning message
+ERROR:root:This is an error message
+CRITICAL:root:This is a critical message
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:17:59] "GET /logs HTTP/1.1" 200 -
+DEBUG:root:This is a debug message
+INFO:root:This is an info message
+WARNING:root:This is a warning message
+ERROR:root:This is an error message
+CRITICAL:root:This is a critical message
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:18:01] "GET /logs HTTP/1.1" 200 -
+DEBUG:root:This is a debug message
+INFO:root:This is an info message
+WARNING:root:This is a warning message
+ERROR:root:This is an error message
+CRITICAL:root:This is a critical message
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2023 08:18:11] "GET /logs HTTP/1.1" 200 -

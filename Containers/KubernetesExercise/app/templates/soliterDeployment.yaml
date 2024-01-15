@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soliter-deployment
+spec:
+  replicas: {{ .Values.replicacount }}
+  selector:
+    matchLabels:
+      app: soliter-app
+  template:
+    metadata:
+      labels:
+        app: soliter-app
+    spec:
+      containers:
+      - name: soliter
+        image: chimenesjr/solitaire:nginx
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: soliter-service
+spec:
+  selector:
+    app: soliter-app
+  ports:
+    - protocol: TCP
+      port: 32400
+      targetPort: 80
+

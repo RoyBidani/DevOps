@@ -1,0 +1,38 @@
+Git + Python + DB
+1. Build Python application as a team working on the same SCM: 
+GitHub **NOTE-APP**
+CRUD - create read update delete
+add log logic! logging module
+
+Containerization/ Docker:
+2. Make Sure the application containerized and uploaded to shared image repo: Docker+DockerHub
+
+CI/CD Tools
+3. Write Pipelines for CI + CD: GitHub Actions
+
+BASH/LINUX:
+4. Create Tagging logic using bash as part of the pipeline
+5. Make sure your CI/CD Pipelines can handle with unexpected situation. 
+
+Logging + monitoring: promethues + graphana - $$$$
+7. Make sure you have Logs visibility: the app will generate logs
+8. Make sure you have Metric visibility: 
+
+Networking:
+10. The application Should have DOMAIN + SSL Cert: ingress controller (nginx) through NLB
+
+ 
+IAC:
+11. Create same EKS infrastructure in another region.
+12. Make Sure your whole workload is working. 
+13. How much time did it took?
+
+
+Optional
+14. Use ArgoCD as deployment tool. 
+
+MUST DO DURING THE PROJECT:
+* Recap Keywords + Questions from WS 
+
+
+

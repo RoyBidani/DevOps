@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+# Install any necessary dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the Bash script to the container
+COPY name.sh /name.sh
+
+# Set the default user for the container
+USER nobody
+
+# Set the entry point to run the Bash script
+ENTRYPOINT ["bash", "/name.sh"]

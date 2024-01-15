@@ -1,0 +1,4 @@
+replicacount: 4
+image: yarinlaniado/capyweather:ebs-json
+
+

@@ -1,0 +1,22 @@
+# Ignore binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore TXT files
+#*.txt
+
+# Ignore PDF files
+*.pdf
+
+# Ignore object files
+*.o
+
+# Ignore directories
+*/
+
+# Ignore virtual environment folders
+venv/
+env/
+
